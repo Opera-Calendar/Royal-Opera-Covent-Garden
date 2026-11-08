@@ -22,7 +22,7 @@ BASE = 'https://www.rbo.org.uk'
 LONDON = ZoneInfo('Europe/London')
 NOW = datetime.now(LONDON)
 ROOT = Path(__file__).resolve().parent
-HEADERS = {'User-Agent': 'Mozilla/5.0 (compatible; PersonalCalendar/1.0)'}
+HEADERS = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36', 'Accept-Language':'en-GB,en;q=0.9'}
 MONTHS = {m.lower(): i for i, m in enumerate(['January','February','March','April','May','June','July','August','September','October','November','December'],1)}
 DAY = r'(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)'
 DATE_RE = re.compile(rf'\b({DAY})\s+(\d{{1,2}})\s+({'|'.join(MONTHS)}),?\s+(\d{{1,2}})[.:](\d{{2}})\s*(am|pm)',re.I)
@@ -141,23 +141,30 @@ def main():
     # Avoid processing hundreds of historical productions from sitemap: inspect only future content.
     with sync_playwright() as p:
         browser=p.chromium.launch(headless=True)
-        page=browser.new_page(user_agent=HEADERS['User-Agent'])
+        context=browser.new_context(user_agent=HEADERS['User-Agent'], locale='en-GB', timezone_id='Europe/London')
+        page=context.new_page()
         for url in urls[:600]:
             try:
                 page.goto(url,wait_until='domcontentloaded',timeout=30000)
-                page.wait_for_timeout(500)
-                text=page.locator('body').inner_text(timeout=7000)
+                page.wait_for_timeout(1100)
+                text=page.locator('body').inner_text(timeout=10000)
+                if ('Opera and music' not in text and 'Opera and Music' not in text) and ('/production/' in url):
+                    print('DEBUG category absent:', url, 'page_title=',repr(page.title()[:100]), 'body_start=',repr(text[:240]))
+                if re.search(r'Access Denied|Just a moment|verify you are human|enable JavaScript|403 Forbidden', text[:1200], re.I):
+                    raise RuntimeError('Page blocked/challenged: '+repr(text[:250]))
                 title=page.title().split('–')[0].strip() or url.rsplit('/',1)[-1]
                 # Strictly exclude dance/ballet, screening-only pages and old productions.
-                if 'Opera and music' not in text and 'Opera and Music' not in text:continue
+                if not re.search(r'\bOpera and music\b',text,re.I):continue
                 if 'No dates scheduled' in text:continue
                 start,end=range_from_text(text)
                 if end and end<NOW.date():continue
-                if not start and not SALE_RE.search(text):continue
+                if not start and not SALE_RE.search(text):
+                    print('DEBUG No production date range or sale:',url,repr(text[:240]))
+                    continue
                 processed+=1
                 # The site initially shows only 3 dates. Click to reveal the others.
                 expanded=False
-                button=page.get_by_text(re.compile(r'Show all dates',re.I)).first
+                button=page.get_by_text(re.compile(r'Expand all dates|Show all dates',re.I)).first
                 try:
                     if button.count() and button.is_visible():
                         button.click(timeout=3000)
@@ -172,15 +179,15 @@ def main():
                         page.wait_for_timeout(500)
                         text=page.locator('body').inner_text(timeout=7000)
                     except Exception:pass
-                if 'Show all dates until' in text:
+                if re.search(r'Show all dates until \d',text,re.I):
                     incomplete.append(url)
                     print('INCOMPLETE listing:',url)
                     continue
                 durations=DURATION_RE.search(text)
                 mins=(int(durations.group(1) or 0)*60+int(durations.group(2) or 0)) if durations else 0
                 if mins<30:mins=180
-                # Only parse date lines appearing before Synopsis/Creatives to avoid textual false positives.
-                relevant=re.split(r'\b(?:Synopsis|Creatives|Guidance)\b',text,maxsplit=1)[0]
+                # Dates and cast section lies above Guidance; avoid synopsis dates.
+                relevant=re.split(r'\bGuidance\b',text,maxsplit=1)[0]
                 seen=set()
                 for m in DATE_RE.finditer(relevant):
                     wd,d,month,h,minute,ap=m.groups()
@@ -192,6 +199,7 @@ def main():
                     if dt in seen:continue
                     seen.add(dt)
                     performances.append({'uid':uuid.uuid5(uuid.NAMESPACE_URL,url+dt.isoformat()).hex,'start':dt,'end':dt+timedelta(minutes=mins),'summary':title+' – Royal Opera House','description':f'Approximate duration: {mins} minutes (if published; otherwise 180-minute placeholder).\nCheck latest cast and venue on official page.','url':url})
+                print('DEBUG production:',title,'range=',start,end,'parsed=',len(seen),'sale=',bool(SALE_RE.search(text)))
                 if start and end and end>=NOW.date() and not seen:
                     incomplete.append(url)
                     print('INCOMPLETE no dates:',url)
@@ -202,12 +210,15 @@ def main():
                     when=datetime(int(y),MONTHS[month.lower()],int(d),hh,mm,tzinfo=LONDON)
                     if when>=NOW:
                         sales.append({'uid':uuid.uuid5(uuid.NAMESPACE_URL,'sale'+url+when.isoformat()).hex,'start':when,'end':when+timedelta(hours=1),'summary':'Ticket sales – '+title,'description':'General public booking begins. Confirm terms and availability at official website.','url':url,'alarms':[90,30,7,1]})
-            except Exception as e:print('WARN production:',url,str(e)[:200])
+            except Exception as e:
+                incomplete.append(url)
+                print('WARN production:',url,repr(e)[:500])
+        context.close()
         browser.close()
     # Reject incomplete runs instead of overwriting a valid existing subscription with a bad one.
     if incomplete:
         (ROOT/'incomplete_report.txt').write_text('\n'.join(incomplete)+'\n')
-        raise RuntimeError(f'{len(incomplete)} production(s) were not fully expanded; calendar NOT updated. Inspect incomplete_report.txt')
+        raise RuntimeError(f'{len(incomplete)} production(s) incomplete or failed; calendar NOT updated. See WARN and DEBUG lines above.')
     if processed<2 or len(performances)<3:
         raise RuntimeError(f'Suspiciously little data: processed={processed}, performances={len(performances)}. Calendar NOT updated.')
     # Deduplicate same booking date as one event with titles combined.
