@@ -166,9 +166,12 @@ def main():
                 def has_more_dates(body):
                     return bool(re.search(r"Show all dates until\s+\d", body, re.I))
 
-                if has_more_dates(text):
+                originally_collapsed = has_more_dates(text)
+                if originally_collapsed:
+                    # The action label may remain in the DOM after expansion.
+                    # Count real date rows rather than interpreting text alone.
                     for attempt in range(4):
-                        # Try standard accessible controls first.
+                        before = len(DATE_RE.findall(text))
                         clicked = False
                         for selector in (
                             'button:has-text("Show all dates")',
@@ -179,38 +182,49 @@ def main():
                         ):
                             try:
                                 locator = page.locator(selector).first
-                                if locator.count():
-                                    locator.scroll_into_view_if_needed(timeout=1500)
-                                    locator.click(timeout=2500, force=True)
+                                if locator.count() and locator.is_visible():
+                                    locator.click(timeout=3000)
                                     clicked = True
                                     break
                             except Exception as exc:
                                 print('DEBUG click attempt:', selector, str(exc)[:110])
                         if not clicked:
-                            # Fallback for controls implemented as custom div/span.
-                            # Only click an element containing the exact action label.
-                            clicked = bool(page.evaluate(r'''() => {
-                                const nodes = [...document.querySelectorAll('button, a, [role="button"], div, span')];
-                                const match = nodes.find(e => {
-                                    const s=(e.innerText||'').trim();
-                                    return /^Show all dates until\s+\d/i.test(s) && s.length < 95;
-                                });
+                            clicked = bool(page.evaluate('''() => {
+                                const nodes = [...document.querySelectorAll('button, a, [role="button"]')];
+                                const match = nodes.find(e => /(?:Show all dates|Expand all dates)/i.test(e.innerText||''));
                                 if (!match) return false;
-                                const ctl = match.closest('button, a, [role="button"]') || match;
-                                ctl.click(); return true;
+                                match.click(); return true;
                             }'''))
-                        page.wait_for_timeout(1100)
+                        page.wait_for_timeout(1300)
                         text = page.locator('body').inner_text(timeout=10000)
-                        print('DEBUG expansion:',url,'attempt=',attempt+1,'clicked=',clicked,
-                              'remaining=',has_more_dates(text))
-                        if not has_more_dates(text):
+                        after = len(DATE_RE.findall(text))
+                        print('DEBUG expansion:', url, 'attempt=', attempt+1,
+                              'clicked=', clicked, 'date_rows=', before, '->', after,
+                              'prompt_present=', has_more_dates(text))
+                        parsed_dates=[]
+                        for match in DATE_RE.finditer(text):
+                            wd, dd, mon, *_ = match.groups()
+                            try:
+                                yy=infer_year(mon,dd,start,end)
+                                candidate=date(yy,MONTHS[mon.lower()],int(dd))
+                                if candidate.strftime('%A').lower()==wd.lower():
+                                    parsed_dates.append(candidate)
+                            except (ValueError, KeyError):
+                                continue
+                        # Stop once the final published date is visible; further
+                        # clicks could collapse the list again.
+                        if end and end in parsed_dates:
                             break
                         if not clicked:
                             break
-                if has_more_dates(text):
-                    incomplete.append(url)
-                    print('INCOMPLETE listing (more dates still hidden):',url)
-                    continue
+                    final_rows=len(DATE_RE.findall(text))
+                    # Conservative check; cannot prove intermediate dates complete.
+                    if not (end and end in parsed_dates and final_rows >= 4):
+                        incomplete.append(url)
+                        print('INCOMPLETE listing:',url,'published_end=',end,
+                              'last_parsed=',max(parsed_dates) if parsed_dates else None,
+                              'date_rows=',final_rows)
+                        continue
                 durations=DURATION_RE.search(text)
                 mins=(int(durations.group(1) or 0)*60+int(durations.group(2) or 0)) if durations else 0
                 if mins<30:mins=180
