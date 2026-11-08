@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+!/usr/bin/env python3
 """Best-effort Royal Opera House event collector, with fail-closed coverage checks.
 
 The website is not a published stable API. Review the workflow logs after first run.
@@ -148,8 +148,6 @@ def main():
                 page.goto(url,wait_until='domcontentloaded',timeout=30000)
                 page.wait_for_timeout(1100)
                 text=page.locator('body').inner_text(timeout=10000)
-                if ('Opera and music' not in text and 'Opera and Music' not in text) and ('/production/' in url):
-                    print('DEBUG category absent:', url, 'page_title=',repr(page.title()[:100]), 'body_start=',repr(text[:240]))
                 if re.search(r'Access Denied|Just a moment|verify you are human|enable JavaScript|403 Forbidden', text[:1200], re.I):
                     raise RuntimeError('Page blocked/challenged: '+repr(text[:250]))
                 title=page.title().split('–')[0].strip() or url.rsplit('/',1)[-1]
@@ -162,26 +160,56 @@ def main():
                     print('DEBUG No production date range or sale:',url,repr(text[:240]))
                     continue
                 processed+=1
-                # The site initially shows only 3 dates. Click to reveal the others.
-                expanded=False
-                button=page.get_by_text(re.compile(r'Expand all dates|Show all dates',re.I)).first
-                try:
-                    if button.count() and button.is_visible():
-                        button.click(timeout=3000)
-                        page.wait_for_timeout(650)
-                        expanded=True
-                except Exception as e: print('WARN expand:',url,str(e)[:100])
-                text=page.locator('body').inner_text(timeout=7000)
-                # Some pages use "Expand all dates" instead of "Show all dates".
-                if 'Show all dates until' in text and not expanded:
-                    try:
-                        page.get_by_text('Expand all dates',exact=False).first.click(timeout=2500)
-                        page.wait_for_timeout(500)
-                        text=page.locator('body').inner_text(timeout=7000)
-                    except Exception:pass
-                if re.search(r'Show all dates until \d',text,re.I):
+                # RBO often renders a non-interactive "Expand all dates" label AND
+                # an actionable "Show all dates until ..." control. Clicking the
+                # label by text alone can time out: find the actual button/anchor.
+                def has_more_dates(body):
+                    return bool(re.search(r"Show all dates until\s+\d", body, re.I))
+
+                if has_more_dates(text):
+                    for attempt in range(4):
+                        # Try standard accessible controls first.
+                        clicked = False
+                        for selector in (
+                            'button:has-text("Show all dates")',
+                            'button:has-text("Expand all dates")',
+                            '[role="button"]:has-text("Show all dates")',
+                            '[role="button"]:has-text("Expand all dates")',
+                            'a:has-text("Show all dates")',
+                        ):
+                            try:
+                                locator = page.locator(selector).first
+                                if locator.count():
+                                    locator.scroll_into_view_if_needed(timeout=1500)
+                                    locator.click(timeout=2500, force=True)
+                                    clicked = True
+                                    break
+                            except Exception as exc:
+                                print('DEBUG click attempt:', selector, str(exc)[:110])
+                        if not clicked:
+                            # Fallback for controls implemented as custom div/span.
+                            # Only click an element containing the exact action label.
+                            clicked = bool(page.evaluate(r'''() => {
+                                const nodes = [...document.querySelectorAll('button, a, [role="button"], div, span')];
+                                const match = nodes.find(e => {
+                                    const s=(e.innerText||'').trim();
+                                    return /^Show all dates until\s+\d/i.test(s) && s.length < 95;
+                                });
+                                if (!match) return false;
+                                const ctl = match.closest('button, a, [role="button"]') || match;
+                                ctl.click(); return true;
+                            }'''))
+                        page.wait_for_timeout(1100)
+                        text = page.locator('body').inner_text(timeout=10000)
+                        print('DEBUG expansion:',url,'attempt=',attempt+1,'clicked=',clicked,
+                              'remaining=',has_more_dates(text))
+                        if not has_more_dates(text):
+                            break
+                        if not clicked:
+                            break
+                if has_more_dates(text):
                     incomplete.append(url)
-                    print('INCOMPLETE listing:',url)
+                    print('INCOMPLETE listing (more dates still hidden):',url)
                     continue
                 durations=DURATION_RE.search(text)
                 mins=(int(durations.group(1) or 0)*60+int(durations.group(2) or 0)) if durations else 0
