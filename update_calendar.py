@@ -1,4 +1,4 @@
-!/usr/bin/env python3
+#!/usr/bin/env python3
 """Best-effort Royal Opera House event collector, with fail-closed coverage checks.
 
 The website is not a published stable API. Review the workflow logs after first run.
