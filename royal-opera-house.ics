@@ -6,19 +6,8 @@ METHOD:PUBLISH
 X-WR-CALNAME:ROH – Opera Performances
 X-WR-TIMEZONE:Europe/London
 BEGIN:VEVENT
-UID:67c5e0cfc2c95bcea041a9271bab278d@roh-opera-calendar
-DTSTAMP:20261110T061417Z
-DTSTART;TZID=Europe/London:20261110T191500
-DTEND;TZID=Europe/London:20261110T222000
-SUMMARY:Carmen – Royal Opera House
-LOCATION:Royal Opera House\, Covent Garden\, London
-DESCRIPTION:Approximate duration: 185 minutes (if published\; otherwise 1
- 80-minute placeholder).\nCheck latest cast and venue on official page.
-URL:https://www.rbo.org.uk/production/carmen-damiano-michieletto
-END:VEVENT
-BEGIN:VEVENT
 UID:5b22be916d6a5eea9b209683d242f994@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261113T113000
 DTEND;TZID=Europe/London:20261113T143500
 SUMMARY:Carmen – Royal Opera House
@@ -29,7 +18,7 @@ URL:https://www.rbo.org.uk/production/carmen-damiano-michieletto
 END:VEVENT
 BEGIN:VEVENT
 UID:1a801bd26db65613b6e1889b126b1727@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261118T191500
 DTEND;TZID=Europe/London:20261118T222000
 SUMMARY:Carmen – Royal Opera House
@@ -40,7 +29,7 @@ URL:https://www.rbo.org.uk/production/carmen-damiano-michieletto
 END:VEVENT
 BEGIN:VEVENT
 UID:e7f16947427f5569956121a0cfcf384a@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261121T191500
 DTEND;TZID=Europe/London:20261121T222000
 SUMMARY:Carmen – Royal Opera House
@@ -51,7 +40,7 @@ URL:https://www.rbo.org.uk/production/carmen-damiano-michieletto
 END:VEVENT
 BEGIN:VEVENT
 UID:7219053218b2577c962d0ff19f3dfd2c@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261130T190000
 DTEND;TZID=Europe/London:20261130T215000
 SUMMARY:Un ballo in maschera (A Masked Ball) - The Royal Opera – Royal 
@@ -63,7 +52,7 @@ URL:https://www.rbo.org.uk/production/un-ballo-in-maschera-philipp-stolzl
 END:VEVENT
 BEGIN:VEVENT
 UID:0e91a76e9ccd5b0da83ff2d4460c19c0@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261202T193000
 DTEND;TZID=Europe/London:20261202T222000
 SUMMARY:Un ballo in maschera (A Masked Ball) - The Royal Opera – Royal 
@@ -75,7 +64,7 @@ URL:https://www.rbo.org.uk/production/un-ballo-in-maschera-philipp-stolzl
 END:VEVENT
 BEGIN:VEVENT
 UID:9d27d75b599b54a6b07e9c60b12cafd8@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261207T193000
 DTEND;TZID=Europe/London:20261207T222000
 SUMMARY:Un ballo in maschera (A Masked Ball) - The Royal Opera – Royal 
@@ -87,7 +76,7 @@ URL:https://www.rbo.org.uk/production/un-ballo-in-maschera-philipp-stolzl
 END:VEVENT
 BEGIN:VEVENT
 UID:5d5159b4ec48544193a3a02daab06708@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261210T193000
 DTEND;TZID=Europe/London:20261210T222000
 SUMMARY:Un ballo in maschera (A Masked Ball) - The Royal Opera – Royal 
@@ -99,7 +88,7 @@ URL:https://www.rbo.org.uk/production/un-ballo-in-maschera-philipp-stolzl
 END:VEVENT
 BEGIN:VEVENT
 UID:ce8abc8b240f52ca9f0b397eb013ee2f@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261212T193000
 DTEND;TZID=Europe/London:20261212T222000
 SUMMARY:Un ballo in maschera (A Masked Ball) - The Royal Opera – Royal 
@@ -111,7 +100,7 @@ URL:https://www.rbo.org.uk/production/un-ballo-in-maschera-philipp-stolzl
 END:VEVENT
 BEGIN:VEVENT
 UID:c51daeabcc6f56ca8b78d0aff19cda01@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261215T193000
 DTEND;TZID=Europe/London:20261215T222000
 SUMMARY:Un ballo in maschera (A Masked Ball) - The Royal Opera – Royal 
@@ -123,7 +112,7 @@ URL:https://www.rbo.org.uk/production/un-ballo-in-maschera-philipp-stolzl
 END:VEVENT
 BEGIN:VEVENT
 UID:7142a28382af55889ed453af8812d427@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20261218T193000
 DTEND;TZID=Europe/London:20261218T222000
 SUMMARY:Un ballo in maschera (A Masked Ball) - The Royal Opera – Royal 
@@ -135,7 +124,7 @@ URL:https://www.rbo.org.uk/production/un-ballo-in-maschera-philipp-stolzl
 END:VEVENT
 BEGIN:VEVENT
 UID:23a1160931d85e8090360b685adc7d2d@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270121T160000
 DTEND;TZID=Europe/London:20270121T221000
 SUMMARY:Götterdämmerung – Royal Opera House
@@ -146,7 +135,7 @@ URL:https://www.rbo.org.uk/production/gotterdammerung-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:b29e74eefefd5b038c33e5fb4d9d0f97@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270124T143000
 DTEND;TZID=Europe/London:20270124T204000
 SUMMARY:Götterdämmerung – Royal Opera House
@@ -157,7 +146,7 @@ URL:https://www.rbo.org.uk/production/gotterdammerung-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:7f0dde47ee185f6a8d10c4f40d1a6154@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270127T160000
 DTEND;TZID=Europe/London:20270127T221000
 SUMMARY:Götterdämmerung – Royal Opera House
@@ -168,7 +157,7 @@ URL:https://www.rbo.org.uk/production/gotterdammerung-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:7853c28a271759dbb73407ddc76d316c@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270130T160000
 DTEND;TZID=Europe/London:20270130T221000
 SUMMARY:Götterdämmerung – Royal Opera House
@@ -179,7 +168,7 @@ URL:https://www.rbo.org.uk/production/gotterdammerung-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:ac2e3135dcbc51f38737e91eb5cd203f@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270203T160000
 DTEND;TZID=Europe/London:20270203T221000
 SUMMARY:Götterdämmerung – Royal Opera House
@@ -190,7 +179,7 @@ URL:https://www.rbo.org.uk/production/gotterdammerung-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:4e5a662b330e5d82912607b247c0a59e@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270207T143000
 DTEND;TZID=Europe/London:20270207T204000
 SUMMARY:Götterdämmerung – Royal Opera House
@@ -201,7 +190,7 @@ URL:https://www.rbo.org.uk/production/gotterdammerung-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:f400c1e2576951ba8b60514e2ec4ea66@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270210T183000
 DTEND;TZID=Europe/London:20270210T213000
 SUMMARY:Così fan tutte – Royal Opera House
@@ -212,7 +201,7 @@ URL:https://www.rbo.org.uk/production/cosi-fan-tutte-netia-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:f2f1aca9815856308dddd1cc195c7b6c@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270212T190000
 DTEND;TZID=Europe/London:20270212T220000
 SUMMARY:Così fan tutte – Royal Opera House
@@ -223,7 +212,7 @@ URL:https://www.rbo.org.uk/production/cosi-fan-tutte-netia-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:f72afc5e93c35fe697496f851a4de990@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270216T190000
 DTEND;TZID=Europe/London:20270216T220000
 SUMMARY:Così fan tutte – Royal Opera House
@@ -234,7 +223,7 @@ URL:https://www.rbo.org.uk/production/cosi-fan-tutte-netia-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:083e674666c35c7ea68940025471e4d0@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270218T190000
 DTEND;TZID=Europe/London:20270218T220000
 SUMMARY:Così fan tutte – Royal Opera House
@@ -245,7 +234,7 @@ URL:https://www.rbo.org.uk/production/cosi-fan-tutte-netia-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:de4ca19555f15a59bc16cc627d6b9e6a@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270223T190000
 DTEND;TZID=Europe/London:20270223T220000
 SUMMARY:Così fan tutte – Royal Opera House
@@ -256,7 +245,7 @@ URL:https://www.rbo.org.uk/production/cosi-fan-tutte-netia-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:8215b689294657b39e69459dd85ece2c@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270225T190000
 DTEND;TZID=Europe/London:20270225T220000
 SUMMARY:Così fan tutte – Royal Opera House
@@ -267,7 +256,7 @@ URL:https://www.rbo.org.uk/production/cosi-fan-tutte-netia-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:a68575d364135d6faa9bc8c4ef7dc856@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270228T140000
 DTEND;TZID=Europe/London:20270228T170000
 SUMMARY:Così fan tutte – Royal Opera House
@@ -278,7 +267,7 @@ URL:https://www.rbo.org.uk/production/cosi-fan-tutte-netia-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:38b10cd8509d58f79f49f37b804b47a2@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270305T183000
 DTEND;TZID=Europe/London:20270305T221000
 SUMMARY:Il Trittico – Royal Opera House
@@ -289,7 +278,7 @@ URL:https://www.rbo.org.uk/production/il-trittico-richard-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:c25e2d0f118453c989085dbd496cf619@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270307T150000
 DTEND;TZID=Europe/London:20270307T184000
 SUMMARY:Il Trittico – Royal Opera House
@@ -300,7 +289,7 @@ URL:https://www.rbo.org.uk/production/il-trittico-richard-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:629f2e1be9f5561e9bc90efebcabbac6@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270309T183000
 DTEND;TZID=Europe/London:20270309T221000
 SUMMARY:Il Trittico – Royal Opera House
@@ -311,7 +300,7 @@ URL:https://www.rbo.org.uk/production/il-trittico-richard-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:a3d4f90b76d05ce08f1f8d1832356fc5@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270312T183000
 DTEND;TZID=Europe/London:20270312T221000
 SUMMARY:Il Trittico – Royal Opera House
@@ -322,7 +311,7 @@ URL:https://www.rbo.org.uk/production/il-trittico-richard-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:f544bc622a9756f7bac9003ee0a7ee41@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270315T183000
 DTEND;TZID=Europe/London:20270315T221000
 SUMMARY:Il Trittico – Royal Opera House
@@ -333,7 +322,7 @@ URL:https://www.rbo.org.uk/production/il-trittico-richard-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:4385f4a577185ef9ab710015a0848031@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270318T183000
 DTEND;TZID=Europe/London:20270318T221000
 SUMMARY:Il Trittico – Royal Opera House
@@ -344,7 +333,7 @@ URL:https://www.rbo.org.uk/production/il-trittico-richard-jones
 END:VEVENT
 BEGIN:VEVENT
 UID:5e500f0373835cd3a786502574943399@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270412T190000
 DTEND;TZID=Europe/London:20270412T220000
 SUMMARY:Tosca – Royal Opera House
@@ -355,7 +344,7 @@ URL:https://www.rbo.org.uk/production/tosca-oliver-mears
 END:VEVENT
 BEGIN:VEVENT
 UID:e5ea7fbef81f50ed904015079d864317@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270414T191500
 DTEND;TZID=Europe/London:20270414T221500
 SUMMARY:Tosca – Royal Opera House
@@ -366,7 +355,7 @@ URL:https://www.rbo.org.uk/production/tosca-oliver-mears
 END:VEVENT
 BEGIN:VEVENT
 UID:93334c28fa255870a4856c8448002334@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270417T191500
 DTEND;TZID=Europe/London:20270417T221500
 SUMMARY:Tosca – Royal Opera House
@@ -377,7 +366,7 @@ URL:https://www.rbo.org.uk/production/tosca-oliver-mears
 END:VEVENT
 BEGIN:VEVENT
 UID:3a39cb393c42536d8d6d05b5bbcb5f60@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270420T191500
 DTEND;TZID=Europe/London:20270420T221500
 SUMMARY:Tosca – Royal Opera House
@@ -388,7 +377,7 @@ URL:https://www.rbo.org.uk/production/tosca-oliver-mears
 END:VEVENT
 BEGIN:VEVENT
 UID:80dd547c261959a992dc69d9728d8532@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270424T191500
 DTEND;TZID=Europe/London:20270424T221500
 SUMMARY:Tosca – Royal Opera House
@@ -399,7 +388,7 @@ URL:https://www.rbo.org.uk/production/tosca-oliver-mears
 END:VEVENT
 BEGIN:VEVENT
 UID:6d0fcf645cf550758275c491dc4cc9bd@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270428T191500
 DTEND;TZID=Europe/London:20270428T221500
 SUMMARY:Tosca – Royal Opera House
@@ -410,7 +399,7 @@ URL:https://www.rbo.org.uk/production/tosca-oliver-mears
 END:VEVENT
 BEGIN:VEVENT
 UID:807d7720450854bb831ddb6f06fb4176@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270430T191500
 DTEND;TZID=Europe/London:20270430T221500
 SUMMARY:Tosca – Royal Opera House
@@ -421,7 +410,7 @@ URL:https://www.rbo.org.uk/production/tosca-oliver-mears
 END:VEVENT
 BEGIN:VEVENT
 UID:3e4b65e2d1cf5b7ab8fc120a12de22d0@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270502T150000
 DTEND;TZID=Europe/London:20270502T180000
 SUMMARY:Tosca – Royal Opera House
@@ -432,7 +421,7 @@ URL:https://www.rbo.org.uk/production/tosca-oliver-mears
 END:VEVENT
 BEGIN:VEVENT
 UID:552fd5c70b5d50a1b12d5905d13ef500@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270505T191500
 DTEND;TZID=Europe/London:20270505T221500
 SUMMARY:Tosca – Royal Opera House
@@ -443,7 +432,7 @@ URL:https://www.rbo.org.uk/production/tosca-oliver-mears
 END:VEVENT
 BEGIN:VEVENT
 UID:e2f8f7d6e2fb5562aac435ed8ae5ea10@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270519T190000
 DTEND;TZID=Europe/London:20270519T221500
 SUMMARY:Aida – Royal Opera House
@@ -454,7 +443,7 @@ URL:https://www.rbo.org.uk/production/aida-robert-carsen
 END:VEVENT
 BEGIN:VEVENT
 UID:8b9d9e4adcc35b6199cc6fe2f24d227e@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270523T150000
 DTEND;TZID=Europe/London:20270523T181500
 SUMMARY:Aida – Royal Opera House
@@ -465,7 +454,7 @@ URL:https://www.rbo.org.uk/production/aida-robert-carsen
 END:VEVENT
 BEGIN:VEVENT
 UID:4dcc1b82c0a5518da8b20e838372efc2@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270526T191500
 DTEND;TZID=Europe/London:20270526T223000
 SUMMARY:Aida – Royal Opera House
@@ -476,7 +465,7 @@ URL:https://www.rbo.org.uk/production/aida-robert-carsen
 END:VEVENT
 BEGIN:VEVENT
 UID:884f685449cf54caaf2ca1afabc4f63f@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270529T130000
 DTEND;TZID=Europe/London:20270529T161500
 SUMMARY:Aida – Royal Opera House
@@ -487,7 +476,7 @@ URL:https://www.rbo.org.uk/production/aida-robert-carsen
 END:VEVENT
 BEGIN:VEVENT
 UID:2cced30d32c8519ab9a764ae9ce85a60@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270601T191500
 DTEND;TZID=Europe/London:20270601T223000
 SUMMARY:Aida – Royal Opera House
@@ -498,7 +487,7 @@ URL:https://www.rbo.org.uk/production/aida-robert-carsen
 END:VEVENT
 BEGIN:VEVENT
 UID:d441cab974365cec87753ca829ae29fc@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270604T191500
 DTEND;TZID=Europe/London:20270604T223000
 SUMMARY:Aida – Royal Opera House
@@ -509,7 +498,7 @@ URL:https://www.rbo.org.uk/production/aida-robert-carsen
 END:VEVENT
 BEGIN:VEVENT
 UID:8fce889d803f5b778f5e88c07355077a@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270607T191500
 DTEND;TZID=Europe/London:20270607T223000
 SUMMARY:Aida – Royal Opera House
@@ -520,7 +509,7 @@ URL:https://www.rbo.org.uk/production/aida-robert-carsen
 END:VEVENT
 BEGIN:VEVENT
 UID:e64489fcc7f7572885b9918bf8c47183@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270609T191500
 DTEND;TZID=Europe/London:20270609T223000
 SUMMARY:Aida – Royal Opera House
@@ -531,7 +520,7 @@ URL:https://www.rbo.org.uk/production/aida-robert-carsen
 END:VEVENT
 BEGIN:VEVENT
 UID:4597820396ab57ff9047fd781b01a448@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270612T191500
 DTEND;TZID=Europe/London:20270612T223000
 SUMMARY:Aida – Royal Opera House
@@ -542,7 +531,7 @@ URL:https://www.rbo.org.uk/production/aida-robert-carsen
 END:VEVENT
 BEGIN:VEVENT
 UID:04b8a3324f3d5d90aaf23ed860913ad2@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270618T183000
 DTEND;TZID=Europe/London:20270618T220000
 SUMMARY:Hercules – Royal Opera House
@@ -553,7 +542,7 @@ URL:https://www.rbo.org.uk/production/hercules-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:07f1a9cda46a5148b36bb419efd269a2@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270621T184500
 DTEND;TZID=Europe/London:20270621T221500
 SUMMARY:Hercules – Royal Opera House
@@ -564,7 +553,7 @@ URL:https://www.rbo.org.uk/production/hercules-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:7cb50b94db44518da5231014328337a0@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270625T184500
 DTEND;TZID=Europe/London:20270625T221500
 SUMMARY:Hercules – Royal Opera House
@@ -575,7 +564,7 @@ URL:https://www.rbo.org.uk/production/hercules-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:7b7d3d60c1665440ab56c1f72dfed980@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270629T184500
 DTEND;TZID=Europe/London:20270629T221500
 SUMMARY:Hercules – Royal Opera House
@@ -586,7 +575,7 @@ URL:https://www.rbo.org.uk/production/hercules-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:d45ac9457f9c5a1e800547f6caecf5fc@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270701T184500
 DTEND;TZID=Europe/London:20270701T221500
 SUMMARY:Hercules – Royal Opera House
@@ -597,7 +586,7 @@ URL:https://www.rbo.org.uk/production/hercules-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:7261d6db7e775a81af6b0cddc2ab4787@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270707T184500
 DTEND;TZID=Europe/London:20270707T221500
 SUMMARY:Hercules – Royal Opera House
@@ -608,7 +597,7 @@ URL:https://www.rbo.org.uk/production/hercules-barrie-kosky
 END:VEVENT
 BEGIN:VEVENT
 UID:677421ec18715e12bcefe92577618a13@roh-opera-calendar
-DTSTAMP:20261110T061417Z
+DTSTAMP:20261111T061851Z
 DTSTART;TZID=Europe/London:20270709T184500
 DTEND;TZID=Europe/London:20270709T221500
 SUMMARY:Hercules – Royal Opera House
